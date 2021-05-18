@@ -1,26 +1,19 @@
 package classes;
 
-//Rubric class
 public class Rubric {
-	public String title; // name of rubric
-	public String studentName;	// name of student
-	public double totalScore; // overall score for rubric
-	// add list of criterion here
-	
-			// Constructor
-			public Rubric(String title, String studentName) {
-				super();
-				this.title = title;
-				this.studentName = studentName;
-			}
-	
-	// Getters/Setters
+	public String title;
+	public String studentName;
+	public double totalScore;
+
+	public Rubric(String title, String studentName) {
+		super();
+		this.title = title;
+		this.studentName = studentName;
+	}
+
 	public String getTitle() {
 		return title;
 	}
-	
-	
-	
 
 	public void setTitle(String title) {
 		this.title = title;
@@ -41,9 +34,5 @@ public class Rubric {
 	public void setTotalScore(double totalScore) {
 		this.totalScore = totalScore;
 	}
-	
-	
-	
-	
-	
+
 }
