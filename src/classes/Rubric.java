@@ -5,10 +5,9 @@ public class Rubric {
 	public String studentName;
 	public double totalScore;
 
-	public Rubric(String title, String studentName) {
+	public Rubric(String title) {
 		super();
 		this.title = title;
-		this.studentName = studentName;
 	}
 
 	public String getTitle() {
