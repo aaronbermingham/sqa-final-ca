@@ -1,6 +1,10 @@
 package classes;
 
+import java.util.ArrayList;
+
 public class Controller {
+	ArrayList<Rubric> rubricList = new ArrayList<Rubric>();
+
 	public Rubric createRubric(String name) {
 		Rubric rubric = new Rubric(name);
 		return rubric;
@@ -14,7 +18,6 @@ public class Controller {
 	public void addCriteriontoRubric(Rubric r, Criterion c) {
 		// Check for the number of criterion associated with the rubric
 		int size = r.getCriteria().size();
-		System.out.println("Size before " + r.getCriteria().size());
 		// Check if the number of criterion are greater or equal to 10
 		if (size >= 10) {
 			// Throw exception if size is greater or equal to tne
@@ -22,8 +25,19 @@ public class Controller {
 		} else {
 			// Other wise add the criterion to the rubric
 			r.getCriteria().add(c);
-			System.out.println("Size after " + r.getCriteria().size());
 		}
-		// return r;
+	}
+
+	// Add a rubric to a list of rubrics
+	public ArrayList<Rubric> addRubricToList(Rubric r) {
+		// Add a new rubric to the list
+		rubricList.add(r);
+		return rubricList;
+	}
+
+	// Get list of all rubrics
+	public ArrayList<Rubric> getAllRubrics() {
+		return this.rubricList;
+
 	}
 }

@@ -58,4 +58,27 @@ public class RubricTests {
 		assertEquals(7, r.getCriteria().size());
 	}
 
+	// Test for creating a list of rubrics
+	@Test
+	public void testAddRubricToList() {
+		ArrayList<Rubric> rubricList = new ArrayList<Rubric>();
+		rubricList = cntrllr.addRubricToList(r);
+		/*
+		 * Check to see if the rubric was added to the list by seeing if the list size
+		 * is equal to one
+		 */
+		assertEquals(1, rubricList.size());
+	}
+
+	// Test for getting a list of rubrics
+	@Test
+	public void testGetListofRubrics() {
+		// Add 5 rubrics to a list
+		for (int i = 0; i < 5; i++) {
+			rubricList = cntrllr.addRubricToList(r);
+		}
+		// Check that the method to get list of rubrics has list size equal to five
+		assertEquals(5, cntrllr.getAllRubrics().size());
+	}
+
 }
