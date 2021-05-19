@@ -38,6 +38,22 @@ public class Controller {
 	// Get list of all rubrics
 	public ArrayList<Rubric> getAllRubrics() {
 		return this.rubricList;
+	}
 
+	// Get rubric by name
+	public Rubric getRubricByName(String s) {
+		// Get all rubrics to check
+		ArrayList<Rubric> rubricList = getAllRubrics();
+		// Variable to hold matching rubric
+		Rubric rubric = null;
+		// Loop through rubric list
+		for (Rubric r : rubricList) {
+			// check if the rubric title matches the passed string
+			if (r.getTitle().equalsIgnoreCase(s)) {
+				// Set rubric equal to the matching rubric from the list
+				rubric = r;
+			}
+		}
+		return rubric;
 	}
 }
