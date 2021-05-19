@@ -48,7 +48,7 @@ This is the code review checklist that I am using when deciding whether to appro
 - [x] Formatting
 - [x] Associated Unit Test where applicable 
     - Follow arrange - act - assert pattern
-- [x] No comments
+- ~~[x] No comments~~ Comments explaining the code are now allowed where appropriate
 - [x] Readability
 - [x] DRY: Don't repeat yourself
 - [x] Small, specific classes/methods
