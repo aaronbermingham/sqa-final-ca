@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -81,4 +82,27 @@ public class RubricTests {
 		assertEquals(5, cntrllr.getAllRubrics().size());
 	}
 
+	// Test for getting a rubric by name
+	@Test
+	public void testGetRubricByName() {
+		// String to search for in rubric list
+		String title = "thattitle";
+		// Add rubrics to list
+		rubricList = cntrllr.addRubricToList(r);
+		Rubric r1 = new Rubric("aTitle");
+		Rubric r2 = new Rubric("theTitle");
+		Rubric r3 = new Rubric("thisTitle");
+		Rubric r4 = new Rubric("thatTitle");
+		rubricList.add(r1);
+		rubricList.add(r2);
+		rubricList.add(r3);
+		rubricList.add(r4);
+		// Variable to hold matching rubric
+		Rubric rubric;
+		// Search for name
+		rubric = cntrllr.getRubricByName(title);
+		// Check that rubric title matches the search string
+		assertTrue(title.equalsIgnoreCase(rubric.getTitle()));
+
+	}
 }
