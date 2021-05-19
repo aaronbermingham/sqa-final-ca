@@ -1,25 +1,32 @@
 # Demonstrating Software Quality
 ## Sprint Backlog
-Task | Estimate
------------- | -------------
-Create rubric class | S
-Create Criterion class | S
-Create Controller class | S
-Add method to create rubric & associated test | L
-Add method to get list of all rubrics & associated test | L
-Add method to get rubrics by name & associated test | M
-Add method to create new student grade & associated test | M
-Add method to assign score for a criterion to a grade & associated test | M
-Add method to get all Student grades for a specific rubric & associated test | S
-Add method for calculating Average & associated test | L
-Add method for calculating Standard Deviation & associated test | M
-Add method for calculating Minimum & associated test | S
-Add method for calculating Maximum & associated test | S
+Number | Task | Estimate | Description
+------------- | ------------- | ------------- | -------------
+1 |Create rubric class | S | Java class for a rubric
+2 |Create Criterion class | S | Java class for a criterion
+3 |Create Controller class | S | Java class with methods for creating rubrics, criterions, calculation methods etc.
+4 |Add method to create rubric & associated test | L | Method for creating a rubric and unit test to ensure it works correctly
+6 |Add method to create criterion & associated test | L | Method for creating a criterion and a unit test to ensure it works correctly
+7 |Add method to get list of all rubrics & associated test | L | Method that returns all rubrics and a unit test to ensure it works correctly
+8 |Add method to get rubrics by name & associated test | M | Method that returns a rubric by name and a unit test to ensure it works correctly
+9 |Add method to create new student grade & associated test | M | Method that makes a new student grade and a unit test to ensure it works correctly
+10 |Add method to assign score for a criterion to a grade & associated test | M | Method that takes a score and assigns it to a specific criterion and a unit test to ensure it works correctly
+11 |Add method to get all Student grades for a specific rubric & associated test | S | Method that gets all student grades and a unit test to ensure it works correctly
+12 |Add method for calculating Average & associated test | L | Method that calculates an average value and a unit test to ensure it works correctly
+13 |Add method for calculating Standard Deviation & associated test | M | Method that calculates a standard deviation value and a unit test to ensure it works correctly
+14 |Add method for calculating Minimum & associated test | S | Method that calculates a min value from a list and a unit test to ensure it works correctly
+15 |Add method for calculating Maximum & associated test | S | Method that calculates a max value from a list and a unit test to ensure it works correctly
 
 ### Selecting estimates
-I have used t-shirt sizing when making the estimates for the sprint backlog. I have based this off the amount of effort that it will take to complete the tasks. 
+I have used t-shirt sizing when making the estimates for the sprint backlog. I have based this off the amount of effort that it will take to complete the tasks. Tasks are assigned estimates of XS, S, M, L etc. This approach presents a difficulty for calculating velocity but I will cover that in the Velocity section below. The tasks are prioritised in the way that I will complete them and how they need to be ordered as some tasks are dependent are others being completed first.
 
-For example, creating the rubric, criterion and controller classes are a S. These tasks are something that I'm familiar with so are estimated accordingly. The first two task that I think needs a unit test ('method to create rubric & associated test' & 'method to get list of all rubrics & associated test') are both estimated as L. These are the first tasks that unit tests are being created for so I think they will take more effort but as I become more familiar with the process, the estimates are smaller.
+For example, creating the rubric, criterion and controller classes are a S. These tasks are something that I'm familiar with so are estimated accordingly. I am using these estimates to set the initial baseline of how much effort it takes to complete a task. I then size the other tasks according to the amount of effort I think they will take compared to these sizings.
+
+The first two task that I think needs a unit test ('method to create rubric & associated test' & 'method to create criterion & associated test' &  'method to get list of all rubrics & associated test') are all estimated as L. These are the first tasks that unit tests are being created for so I think they will take more effort but as I become more familiar with the process, the estimates are smaller. So accordingly, the 'method to get rubrics by name & associated test' is estimated as a M. 
+
+Specifically comparing task 1 for creating a rubric class (S) and task 13 for calculating a standard deviation value (L), there is a clear difference in sizing. Creating a class is a relatively simple task while calculating the standard deviation requires more effort both for the actual method and the unit test to ensure that the method works correctly.
+
+### Velocity
 
 ## Test Driven Approach
 As much as possible, I have tried to follow a test driven approach by adding unit tests with any new code. 
