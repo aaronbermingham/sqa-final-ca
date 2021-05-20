@@ -30,9 +30,18 @@ Specifically comparing task 1 for creating a rubric class (S) and task 14 for ca
 ### Velocity
 
 ## Test Driven Approach
-As much as possible, I have tried to follow a test driven approach by adding unit tests with any new code. 
+As much as possible, I have tried to follow a test driven approach by adding unit tests to accompany any additions to the code. Any methods I've added in the controller class has a corresponding unit test to check if the method has the intended outcome. For each unit test I have tried to follow the arrange - act - assert pattern.
 
-Link to specific commit + explanation
+For example for this [commit](https://github.com/aaronbermingham/sqa-final-ca/pull/15/files/425a13d0ff81c43e40911fa2f2f586673dd650f2) I created a method to calculate a students grade based off a rubric. The method takes a rubric name and student name as parameters and then calculates the studnets total grade based on their scores in that particular rubric.
+
+As part of this commit, I created a unit test to check if this method had the intended outcome of calculating a students total 
+grade. 
+### Arrange
+I set up a student rubric with a list of criterion and scores for each. 
+### Action
+The unit test then calls the calculate student grade method and assigns the return value to a double variable. 
+### Assert
+This variable is then checked using assert equals to determine whether the method calculated the correct figure. In this case the value returned is 10 (3.5 + 2.5 + 4) and the assertion is correct so the unit test is passed.
 
 ## Test Coverage metric
 Explanation
