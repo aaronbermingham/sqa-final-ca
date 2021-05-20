@@ -119,4 +119,27 @@ public class Controller {
 		average = sum / numList.size();
 		return average;
 	}
+	
+	// Method to calculate standard deviation
+	public double stdDev(ArrayList<Double> nums) {
+		// Variable to hold standard deviation value
+		double stdDev = 0.0;
+		double sum = 0.0;
+		// Call average method 
+		double average = average(nums);
+		/*
+		 * Subtract the average
+		 * from each number in the list to the power
+		 * of two divided by the size of the list 
+		 * and sum them
+		 */
+		for (Double d: nums) {
+			sum += (Math.pow(d - average,2))/nums.size();
+		}
+		/* Get the square root of the 
+		 * sum result to find the standard deviation
+		 */
+		stdDev = Math.sqrt(sum);
+		return stdDev;
+	}
 }
