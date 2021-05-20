@@ -2,18 +2,16 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
-
 import org.junit.*;
-
 import classes.Controller;
 import classes.Criterion;
 import classes.Rubric;
 
 public class RubricTests {
 	Controller cntrllr = new Controller();
-	ArrayList<Rubric> rubricList = new ArrayList<Rubric>();
+	ArrayList<Rubric> allRubricList = new ArrayList<Rubric>();
+	ArrayList<Rubric> assignedRubricList = new ArrayList<Rubric>();
 	ArrayList<Criterion> criterionList = new ArrayList<Criterion>();
 	String s = "Rubric title";
 	Rubric r = cntrllr.createRubric(s);
@@ -76,7 +74,7 @@ public class RubricTests {
 	public void testGetListofRubrics() {
 		// Add 5 rubrics to a list
 		for (int i = 0; i < 5; i++) {
-			rubricList = cntrllr.addRubricToList(r);
+			allRubricList = cntrllr.addRubricToList(r);
 		}
 		// Check that the method to get list of rubrics has list size equal to five
 		assertEquals(5, cntrllr.getAllRubrics().size());
@@ -88,21 +86,50 @@ public class RubricTests {
 		// String to search for in rubric list
 		String title = "thattitle";
 		// Add rubrics to list
-		rubricList = cntrllr.addRubricToList(r);
+		allRubricList = cntrllr.addRubricToList(r);
 		Rubric r1 = new Rubric("aTitle");
 		Rubric r2 = new Rubric("theTitle");
 		Rubric r3 = new Rubric("thisTitle");
 		Rubric r4 = new Rubric("thatTitle");
-		rubricList.add(r1);
-		rubricList.add(r2);
-		rubricList.add(r3);
-		rubricList.add(r4);
+		allRubricList.add(r1);
+		allRubricList.add(r2);
+		allRubricList.add(r3);
+		allRubricList.add(r4);
 		// Variable to hold matching rubric
 		Rubric rubric;
 		// Search for name
 		rubric = cntrllr.getRubricByName(title);
 		// Check that rubric title matches the search string
 		assertTrue(title.equalsIgnoreCase(rubric.getTitle()));
-
+	}
+	
+	@Test
+	public void testAddStudentGrade() {
+		// add to rubrics all rubric list 
+		allRubricList = cntrllr.addRubricToList(r);
+		Rubric r1 = new Rubric("aTitle");
+		Rubric r2 = new Rubric("theTitle");
+		Rubric r3 = new Rubric("thisTitle");
+		Rubric r4 = new Rubric("thatTitle");
+		allRubricList.add(r1);
+		allRubricList.add(r2);
+		allRubricList.add(r3);
+		allRubricList.add(r4);
+		// boolean value to check if a student is assigned to a rubric/grade
+		Boolean found = false;
+		String rubricTitle = "thatTitle";
+		String studentName1 = "Anne";
+		String studentName2 = "Barry";
+		// Add two new students grades
+		assignedRubricList = cntrllr.addStudentGrade(rubricTitle,studentName1);
+		assignedRubricList = cntrllr.addStudentGrade(rubricTitle,studentName2);
+		// Check if the students have been assigned
+		for(Rubric r: assignedRubricList) {
+			if(r.getStudentName().equalsIgnoreCase("barry")) {
+				// Set found to true if they have been assigned
+				found = true;
+			}
+		}
+		assertTrue(found);
 	}
 }
