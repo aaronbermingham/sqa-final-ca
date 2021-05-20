@@ -225,7 +225,7 @@ public class RubricTests {
 		// Check that it calculates the correct figure
 		assertEquals(6.151422599691879, stdDev, 0.001);
 	}
-
+	
 	// Test to ensure average is calculated properly
 	@Test
 	public void testAvg() {
@@ -237,6 +237,19 @@ public class RubricTests {
 		double avg = cntrllr.average(valList);
 		// Check if the value is correct
 		assertEquals(9.6, avg, 0.001);
+	}
+	
+	// Method to test min value in a list
+	@Test
+	public void minVal() {
+		// Create a double arraylist
+		ArrayList<Double> valList = new ArrayList<Double>();
+		// Add a list of numbers to the arraylist
+		valList.addAll(numList);
+		// Call get min method
+		double min = cntrllr.min(valList);
+		// Check if the value is correct
+		assertEquals(3, min, 0.001);
 	}
 
 }
