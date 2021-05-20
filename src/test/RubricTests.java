@@ -29,7 +29,7 @@ public class RubricTests {
 		criterionList1.add(c1);
 		criterionList1.add(c2);
 		criterionList1.add(c3);
-		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName,criterionList1);
+		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName, criterionList1);
 		return assignedRubricList;
 	}
 
@@ -152,7 +152,7 @@ public class RubricTests {
 		String studentName1 = "Anne";
 		String studentName2 = "Barry";
 		// Add two new students grades
-		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName1,criterionList1);
+		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName1, criterionList1);
 		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName2, criterionList2);
 		// Check if the students have been assigned
 		for (Rubric r : assignedRubricList) {
@@ -167,9 +167,9 @@ public class RubricTests {
 	@Test
 	public void testAddCriterionScore() {
 		String s1 = "Anne";
-		
+
 		setUpRubric(s1);
-		
+
 		boolean found = false;
 		String criterionName1 = "Criterion 1";
 		String criterionName2 = "Criterion 2";
@@ -183,7 +183,8 @@ public class RubricTests {
 		cntrllr.addCriterionScore(rubricName, criterionName3, score3, s1);
 		for (Rubric r : assignedRubricList) {
 			for (Criterion c : r.getCriteria()) {
-				if (r.getStudentName().equalsIgnoreCase("Anne") && c.getName().equalsIgnoreCase("Criterion 1") && c.getGrade() == 3.5) {
+				if (r.getStudentName().equalsIgnoreCase("Anne") && c.getName().equalsIgnoreCase("Criterion 1")
+						&& c.getGrade() == 3.5) {
 					found = true;
 				}
 			}
@@ -191,4 +192,22 @@ public class RubricTests {
 		assertTrue(found);
 	}
 	
+	@Test
+	public void testGetStudentGrade() {
+		double grade = 0;
+		String s1 = "Anne";
+		setUpRubric(s1);
+		String criterionName1 = "Criterion 1";
+		String criterionName2 = "Criterion 2";
+		String criterionName3 = "Criterion 3";
+		String rubricName = "thattitle";
+		double score1 = 3.5;
+		double score2 = 2.5;
+		double score3 = 4;
+		cntrllr.addCriterionScore(rubricName, criterionName1, score1, s1);
+		cntrllr.addCriterionScore(rubricName, criterionName2, score2, s1);
+		cntrllr.addCriterionScore(rubricName, criterionName3, score3, s1);
+		grade = cntrllr.calculateStudentGrade(rubricName, s1);
+		assertEquals(10, grade, 0.001);
+	}
 }
