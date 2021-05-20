@@ -92,16 +92,26 @@ public class Controller {
 			}
 		}
 	}
-	
+
 	public double calculateStudentGrade(String rubricName, String studentName) {
 		double grade = 0;
 		for (Rubric r : assignedRubricList) {
 			if (r.getStudentName().equalsIgnoreCase(studentName) && r.getTitle().equalsIgnoreCase(rubricName)) {
-				for(Criterion c : r.getCriteria()) {
+				for (Criterion c : r.getCriteria()) {
 					grade += c.getGrade();
 				}
 			}
 		}
 		return grade;
+	}
+
+	public double average(ArrayList<Double> numList) {
+		double average = 0;
+		double sum = 0;
+		for (Double d : numList) {
+			sum += d;
+		}
+		average = sum / numList.size();
+		return average;
 	}
 }

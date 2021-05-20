@@ -3,8 +3,8 @@ package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
-import java.util.Collections;
-
+import java.util.List;
+import java.util.Arrays;
 import org.junit.*;
 import classes.Controller;
 import classes.Criterion;
@@ -18,6 +18,7 @@ public class RubricTests {
 	ArrayList<Criterion> criterionList2 = new ArrayList<Criterion>();
 	String s = "Rubric title";
 	Rubric r = cntrllr.createRubric(s);
+	List<Double> numList = Arrays.asList(3.0, 6.0, 8.0, 10.0, 21.0);
 
 	// Set up rubric with students and criteria
 	public ArrayList<Rubric> setUpRubric(String studentName) {
@@ -191,7 +192,7 @@ public class RubricTests {
 		}
 		assertTrue(found);
 	}
-	
+
 	@Test
 	public void testGetStudentGrade() {
 		double grade = 0;
@@ -210,4 +211,13 @@ public class RubricTests {
 		grade = cntrllr.calculateStudentGrade(rubricName, s1);
 		assertEquals(10, grade, 0.001);
 	}
+
+	@Test
+	public void testAvg() {
+		ArrayList<Double> valList = new ArrayList<Double>();
+		valList.addAll(numList);
+		double avg = cntrllr.average(valList);
+		assertEquals(9.6, avg, 0.001);
+	}
+
 }
