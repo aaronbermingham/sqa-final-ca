@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Controller {
 	// List for all rubrics
@@ -141,5 +142,11 @@ public class Controller {
 		 */
 		stdDev = Math.sqrt(sum);
 		return stdDev;
+	}
+	
+	// Method to return max value from list of nums
+	public double min(ArrayList<Double> nums) {
+		double min = Collections.min(nums);
+		return min;
 	}
 }
