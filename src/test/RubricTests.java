@@ -18,6 +18,7 @@ public class RubricTests {
 	ArrayList<Criterion> criterionList2 = new ArrayList<Criterion>();
 	String s = "Rubric title";
 	Rubric r = cntrllr.createRubric(s);
+	// List of numbers to test calculation methods
 	List<Double> numList = Arrays.asList(3.0, 6.0, 8.0, 10.0, 21.0);
 
 	// Set up rubric with students and criteria
@@ -211,12 +212,17 @@ public class RubricTests {
 		grade = cntrllr.calculateStudentGrade(rubricName, s1);
 		assertEquals(10, grade, 0.001);
 	}
-
+	
+	// Test to ensure average is calculated properly
 	@Test
 	public void testAvg() {
+		// Create a double arraylist
 		ArrayList<Double> valList = new ArrayList<Double>();
+		// Add a list of numbers to the arraylist
 		valList.addAll(numList);
+		// Call average method
 		double avg = cntrllr.average(valList);
+		// Check if the value is correct
 		assertEquals(9.6, avg, 0.001);
 	}
 

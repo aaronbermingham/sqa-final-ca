@@ -104,13 +104,18 @@ public class Controller {
 		}
 		return grade;
 	}
-
+	
+	// Method to calculate average
 	public double average(ArrayList<Double> numList) {
+		// Variable to hold average value
 		double average = 0;
+		// Variable to hold the sum of a list of numbers
 		double sum = 0;
+		// Iterate through list adding the numbers together
 		for (Double d : numList) {
 			sum += d;
 		}
+		// Divide the sum by the size of the list
 		average = sum / numList.size();
 		return average;
 	}
