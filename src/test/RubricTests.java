@@ -212,7 +212,20 @@ public class RubricTests {
 		grade = cntrllr.calculateStudentGrade(rubricName, s1);
 		assertEquals(10, grade, 0.001);
 	}
-	
+
+	// Test for standard deviation method
+	@Test
+	public void testStdDev() {
+		// Create a double arraylist
+		ArrayList<Double> valList = new ArrayList<Double>();
+		// Add a list of numbers to the arraylist
+		valList.addAll(numList);
+		// Call standard deviation method
+		double stdDev = cntrllr.stdDev(valList);
+		// Check that it calculates the correct figure
+		assertEquals(6.151422599691879, stdDev, 0.001);
+	}
+
 	// Test to ensure average is calculated properly
 	@Test
 	public void testAvg() {
