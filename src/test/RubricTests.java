@@ -3,6 +3,8 @@ package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import org.junit.*;
 import classes.Controller;
 import classes.Criterion;
@@ -12,9 +14,39 @@ public class RubricTests {
 	Controller cntrllr = new Controller();
 	ArrayList<Rubric> allRubricList = new ArrayList<Rubric>();
 	ArrayList<Rubric> assignedRubricList = new ArrayList<Rubric>();
-	ArrayList<Criterion> criterionList = new ArrayList<Criterion>();
+	ArrayList<Criterion> criterionList1 = new ArrayList<Criterion>();
+	ArrayList<Criterion> criterionList2 = new ArrayList<Criterion>();
 	String s = "Rubric title";
 	Rubric r = cntrllr.createRubric(s);
+
+	// Set up rubric with students and criteria
+	public ArrayList<Rubric> setUpRubric(String studentName) {
+		createListofRubrics();
+		String rubricTitle = "thatTitle";
+		Criterion c1 = new Criterion("Criterion 1");
+		Criterion c2 = new Criterion("Criterion 2");
+		Criterion c3 = new Criterion("Criterion 3");
+		criterionList1.add(c1);
+		criterionList1.add(c2);
+		criterionList1.add(c3);
+		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName,criterionList1);
+		return assignedRubricList;
+	}
+
+	@Test
+	public void testRubric() {
+		setUpRubric("Barry");
+		Boolean found = false;
+
+		for (Rubric r : assignedRubricList) {
+			for (Criterion c : r.getCriteria()) {
+				if (r.getStudentName().equalsIgnoreCase("Barry") && c.getName().equalsIgnoreCase("Criterion 1")) {
+					found = true;
+				}
+			}
+		}
+		assertTrue(found);
+	}
 
 	/*
 	 * Method to create list of different types of rubrics Used in multiple methods
@@ -45,10 +77,10 @@ public class RubricTests {
 		Criterion c2 = new Criterion("NewCriterion");
 		// Add criterion object c1 so rubric has ten criteria
 		for (int i = 0; i < 10; i++) {
-			criterionList.add(c1);
+			criterionList1.add(c1);
 		}
 		// Associate the criterion list with a rubric
-		r.setCriteria(criterionList);
+		r.setCriteria(criterionList1);
 		/*
 		 * Attempt to add a new criterion to the rubric This should result in a
 		 * exception being thrown
@@ -63,10 +95,10 @@ public class RubricTests {
 		Criterion c2 = new Criterion("NewCriterion");
 		// Add criterion object c1 so rubric has 6 criteria
 		for (int i = 0; i < 6; i++) {
-			criterionList.add(c1);
+			criterionList1.add(c1);
 		}
 		// Associate the criterion list with a rubric
-		r.setCriteria(criterionList);
+		r.setCriteria(criterionList1);
 		// Add new
 		cntrllr.addCriteriontoRubric(r, c2);
 		assertEquals(7, r.getCriteria().size());
@@ -120,8 +152,8 @@ public class RubricTests {
 		String studentName1 = "Anne";
 		String studentName2 = "Barry";
 		// Add two new students grades
-		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName1);
-		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName2);
+		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName1,criterionList1);
+		assignedRubricList = cntrllr.addStudentGrade(rubricTitle, studentName2, criterionList2);
 		// Check if the students have been assigned
 		for (Rubric r : assignedRubricList) {
 			if (r.getStudentName().equalsIgnoreCase("Anne")) {
@@ -131,4 +163,32 @@ public class RubricTests {
 		}
 		assertTrue(found);
 	}
+
+	@Test
+	public void testAddCriterionScore() {
+		String s1 = "Anne";
+		
+		setUpRubric(s1);
+		
+		boolean found = false;
+		String criterionName1 = "Criterion 1";
+		String criterionName2 = "Criterion 2";
+		String criterionName3 = "Criterion 3";
+		String rubricName = "thattitle";
+		double score1 = 3.5;
+		double score2 = 2.5;
+		double score3 = 4;
+		cntrllr.addCriterionScore(rubricName, criterionName1, score1, s1);
+		cntrllr.addCriterionScore(rubricName, criterionName2, score2, s1);
+		cntrllr.addCriterionScore(rubricName, criterionName3, score3, s1);
+		for (Rubric r : assignedRubricList) {
+			for (Criterion c : r.getCriteria()) {
+				if (r.getStudentName().equalsIgnoreCase("Anne") && c.getName().equalsIgnoreCase("Criterion 1") && c.getGrade() == 3.5) {
+					found = true;
+				}
+			}
+		}
+		assertTrue(found);
+	}
+	
 }
