@@ -63,16 +63,36 @@ public class Controller {
 		return rubric;
 	}
 
-	public ArrayList<Rubric> addStudentGrade(String rubricName, String studentName) {
+	public ArrayList<Rubric> addStudentGrade(String rubricName, String studentName,
+			ArrayList<Criterion> criterionList) {
 		// get correct rubric
 		Rubric r = getRubricByName(rubricName);
 		String title = r.getTitle();
 		Rubric studentRubric = new Rubric(title);
 		// add student to that rubric
 		studentRubric.setStudentName(studentName);
+		studentRubric.setCriteria(criterionList);
 		// Add the rubric that is associated with a student to the list
 		assignedRubricList.add(studentRubric);
 		// return the assigned rubric list
 		return assignedRubricList;
+	}
+
+	public void addCriterionScore(String rubricName, String criterionName, double score, String studentName) {
+		// Loop through assigned rubrics and the rubrics associated criteria
+		int count = 0;
+		for (Rubric r : assignedRubricList) {
+			for (Criterion c : r.getCriteria()) {
+				// Check for correct criterion name, correct student name and that the score is
+				// not > 5
+				if ((r.getTitle().equalsIgnoreCase(rubricName)) && (r.getStudentName().contains(studentName))
+						&& (c.getName().equalsIgnoreCase(criterionName)) && (score <= 5)) {
+					c.setGrade(score);
+				}
+
+			}
+
+		}
+
 	}
 }
