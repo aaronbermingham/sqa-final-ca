@@ -89,10 +89,19 @@ public class Controller {
 						&& (c.getName().equalsIgnoreCase(criterionName)) && (score <= 5)) {
 					c.setGrade(score);
 				}
-
 			}
-
 		}
-
+	}
+	
+	public double calculateStudentGrade(String rubricName, String studentName) {
+		double grade = 0;
+		for (Rubric r : assignedRubricList) {
+			if (r.getStudentName().equalsIgnoreCase(studentName) && r.getTitle().equalsIgnoreCase(rubricName)) {
+				for(Criterion c : r.getCriteria()) {
+					grade += c.getGrade();
+				}
+			}
+		}
+		return grade;
 	}
 }
