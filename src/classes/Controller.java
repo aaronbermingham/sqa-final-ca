@@ -144,9 +144,15 @@ public class Controller {
 		return stdDev;
 	}
 	
-	// Method to return max value from list of nums
+	// Method to return min value from list of nums
 	public double min(ArrayList<Double> nums) {
 		double min = Collections.min(nums);
 		return min;
+	}
+	
+	// Method to return max value from list of nums
+	public double max(ArrayList<Double> nums) {
+		double max = Collections.max(nums);
+		return max;
 	}
 }
