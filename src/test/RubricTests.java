@@ -185,8 +185,8 @@ public class RubricTests {
 		cntrllr.addCriterionScore(rubricName, criterionName3, score3, s1);
 		for (Rubric r : assignedRubricList) {
 			for (Criterion c : r.getCriteria()) {
-				if (r.getStudentName().equalsIgnoreCase("Anne") && c.getName().equalsIgnoreCase("Criterion 1")
-						&& c.getGrade() == 3.5) {
+				if ((r.getStudentName().equalsIgnoreCase("Anne")) && (c.getName().equalsIgnoreCase("Criterion 1"))
+						&& (c.getGrade() == 3.5)) {
 					found = true;
 				}
 			}
@@ -239,6 +239,7 @@ public class RubricTests {
 		assertEquals(9.6, avg, 0.001);
 	}
 	
+	
 	// Method to test min value in a list
 	@Test
 	public void minVal() {
@@ -251,5 +252,17 @@ public class RubricTests {
 		// Check if the value is correct
 		assertEquals(3, min, 0.001);
 	}
+	
+	@Test
+	public void maxVal() {
+		// Create a double arraylist
+				ArrayList<Double> valList = new ArrayList<Double>();
+				// Add a list of numbers to the arraylist
+				valList.addAll(numList);
+				// Call get min method
+		double max = cntrllr.max(valList);
+		assertEquals(21,max, 0.001);
+	}
+	
 
 }
