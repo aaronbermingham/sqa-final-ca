@@ -42,9 +42,30 @@ The unit test then calls the calculate student grade method and assigns the retu
 This variable is then checked using assert equals to determine whether the method calculated the correct figure. In this case the value returned is 10 (3.5 + 2.5 + 4) and the assertion is correct so the unit test is passed.
 
 ## Test Coverage metric
-Explanation
+I am using Eclipse IDE for this project so to  I have selected the code coverage tool EclEmma. This tool checks how much of the code is covered by the tests, i.e. how much of the methods have been run by the unit tests.
+To run this tool, I right click the button that is circled in the picture below and select the project that I want to run the tool on.
 
-Screenshot
+![Screenshot (167)](https://user-images.githubusercontent.com/55384582/119115759-6ff4d180-ba1f-11eb-82fe-4fb032f7ad39.png)
+
+This screenshot shows me the test coverage percentages as a whole and broken down for each class.
+![Screenshot (166)](https://user-images.githubusercontent.com/55384582/119114891-7898d800-ba1e-11eb-8e5b-15efcb7871ca.png)
+
+The tool also highlights the actual code to show the level of coverage:
+
+Color | Meaning | Example 
+------------- | ------------- | ------------- 
+Green | Full Coverage | ![Screenshot (169)](https://user-images.githubusercontent.com/55384582/119117427-1ee5dd00-ba21-11eb-842b-6a641d03a9cf.png) 
+Yellow | Partial Coverage | ![Screenshot (170)](https://user-images.githubusercontent.com/55384582/119118356-07f3ba80-ba22-11eb-99f7-e8240ed5ea09.png)
+Red | No Coverage (Line has not been executed by a test) | ![Screenshot (171)](https://user-images.githubusercontent.com/55384582/119118532-3376a500-ba22-11eb-945b-725b0d02a7a1.png)
+
+The screenshots show the highlighting of lines of code so it easy to check where there is gaps in coverage so you can then try close the gap and increase the overall level of test coverage. In the Rubric and Criterion classes there were setters methods that didn't feature in any tests and I added tests for some of these methods to close the  gap resulting in wider test coverage.
+
+![Screenshot (174)](https://user-images.githubusercontent.com/55384582/119122226-35dafe00-ba26-11eb-9d28-3d31d1382512.png)
+
+This has increased the test coverage for both the Rubric and Criterion class when compared to initial screenshot of coverage level above. The code for setName method in the Criterion class is now highlighted green as it has test coverage.
+
+![Screenshot (173)](https://user-images.githubusercontent.com/55384582/119121861-d250d080-ba25-11eb-8795-6be71121d0d5.png)
+
 
 ## Version Control
 For this project, I am using the GitFlow process for version control. I have a master/main branch and a develop branch. When I'm making any changes or developing a new feature (e.g. create rubric class), I create a feature branch. This feature branch is then merged into the develop branch if it is approved in a code review.
