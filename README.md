@@ -79,9 +79,47 @@ This has increased the test coverage for both the Rubric and Criterion class whe
 
 
 ## Version Control
-For this project, I am using the GitFlow process for version control. I have a master/main branch and a develop branch. When I'm making any changes or developing a new feature (e.g. create rubric class), I create a feature branch. This feature branch is then merged into the develop branch if it is approved in a code review.
+## Version Control
+For this project, I am using the GitFlow process for version control. I have a master/main branch and a develop branch. When I'm making any changes or developing a new feature (e.g. create rubric class), I create a feature branch. This feature branch is then merged into the develop branch if it is approved in a code review. When the sprint is complete, a release branch is created off the develop branch and then the release branch can be merged to master/main.
 
-Add description of branches
+### Branches
+I have listed all the branches here that were used for the code part of the project (there are also branches for this readme). They are in the order of how they fit in the Gitflow process i.e I first created a main branch then a develop branch and each feature branch below develop is branched off develop. All features branches are merged into the develop branch when they are completed and have passed a code review.
+####  main
+The main branch, nothing is merged to this until there is a release
+####  develop
+The develop branch is where all feature branches are merged into after they have passed a code review. A release branch is created off develop when the sprint is completed.
+####  rubric-class
+This feature branch is used to create a rubric class
+####  criterion-class
+This feature branch is used to create a criterion class
+####  controller-class
+Feature branch for a class that will hold all the methods for creating rubrics, criterions, calculations etc.
+####  create-rubric
+This feature branch has a method to create rubric objects
+####  create-criterion
+This feature branch has a method to create criterion objects
+#### add-criterion-to-rubric
+This is a feature branch that associates a criterion with a rubric
+####  all-rubrics
+Feature branch to return all rubrics
+####  rubric-by-name
+Feature branch to return a rubric by its name
+####  add-student-grade
+add-student-grade is a feature branch for adding a student to a rubric so that they can then be marked for the criteria in that rubric
+#### add-criterion-score
+This feature branch was created to add a score to a criterion.
+####  get-rubric-grades
+Feature branch created to return the grade of a student
+####  calculate-average
+Feature branch to calculate average from a list of numbers
+####  standard-dev
+Feature branch to calculate standard deviation from a list of numbers
+####  min-value
+Feature branch to get minimum value from a list of numbers
+####  max-value
+Feature branch to get maximum value from a list of numbers
+####  test-coverage
+Feature branch created to close the coverage test gap after using a code coverage tool
 
 ## Code review checklist
 This is the code review checklist that I am using when deciding whether to approve a pull request.
