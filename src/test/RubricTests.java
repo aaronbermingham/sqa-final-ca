@@ -264,5 +264,26 @@ public class RubricTests {
 		assertEquals(21,max, 0.001);
 	}
 	
+	@Test
+	public void testSetCriterionName() {
+		Criterion c = new Criterion("Test name");
+		c.setName("New name");
+		assertEquals("New name", c.getName());
+	}
+	
+	@Test
+	public void testSetRubricName() {
+		Rubric r = new Rubric("Test name");
+		r.setTitle("New name");
+		assertEquals("New name", r.getTitle());
+	}
+	
+	@Test
+	public void testSetRubricScore() {
+		Rubric r = new Rubric("Test name");
+		r.setTotalScore(8);
+		assertEquals(8, r.getTotalScore(), 0.001);
+	}
+	
 
 }
