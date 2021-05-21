@@ -264,5 +264,28 @@ public class RubricTests {
 		assertEquals(21,max, 0.001);
 	}
 	
+	// Group of methods to close test coverage gap
+	@Test
+	// Test to check setter for Criterion name
+	public void testSetCriterionName() {
+		Criterion c = new Criterion("Test name");
+		c.setName("New name");
+		assertEquals("New name", c.getName());
+	}
+	
+	// Test to check setter for Rubric name
+	@Test
+	public void testSetRubricName() {
+		r.setTitle("New name");
+		assertEquals("New name", r.getTitle());
+	}
+	
+	// Test to check setter for Rubric total grade/score
+	@Test
+	public void testSetRubricScore() {
+		r.setTotalScore(8);
+		assertEquals(8, r.getTotalScore(), 0.001);
+	}
+	
 
 }
