@@ -126,10 +126,14 @@ This is the code review checklist that I am using when deciding whether to appro
 - [x] Formatting
 - [x] Associated Unit Test where applicable 
     - Follow arrange - act - assert pattern
-- ~~[x] No comments~~ Comments explaining the code are now allowed where appropriate
+- [x] Comments explaining the code are now allowed where appropriate
 - [x] Readability
 - [x] DRY: Don't repeat yourself
 - [x] Small, specific classes/methods
 - [x] Ensure pull requests are merged into dev branch not main
 
-Add link to closed pull request
+This is the suggested checklist that I have followed when reviewing code. In a real world scenario, I would have added must be approved by at least two people but given that this is a one person project I left that out! I came up with this list as they are things that I find I don't follow consistently when coding so I think it's important that they are explicitly stated and used when reviewing a pull request. I have also added some instructions for the how unit tests should be structured so there is a consistent standard for any unit tests that are created.
+
+Here is an example of a [pull request](https://github.com/aaronbermingham/sqa-final-ca/pull/13) that didn't meet all the checklist requirements. The reviewer points out that some of the checklist is not followed and adds a review comment and a comment in the code to point this out. In this case DRY and small/specific classes are not followed. The reviewer makes some suggestions and the person who created the PR makes the appropriate changes and pushes them. The changes satisfy the checklist requirements and the PR is approved and allowed to be merged to the develop branch.
+
+
